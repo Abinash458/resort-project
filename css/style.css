@@ -7559,7 +7559,7 @@ h1, h2, h3, h4, h5,
     background: tertiary; }
     @media (max-width: 414px) {
       .owl-carousel.home-slider {
-        height: 600px; } }
+        height: 500px; } }
     .owl-carousel.home-slider .slider-item {
       background-size: cover;
       background-repeat: no-repeat;
