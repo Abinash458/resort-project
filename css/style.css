@@ -7557,7 +7557,7 @@ h1, h2, h3, h4, h5,
     height: 900px;
     z-index: 0;
     background: tertiary; }
-    @media (max-width: 390px) {
+    @media (max-width: 414px) {
       .owl-carousel.home-slider {
         height: 600px; } }
     .owl-carousel.home-slider .slider-item {
