@@ -64,7 +64,15 @@
         <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
-                    <h2>Title</h2>
+                    <h2>P & L -
+                        <script>
+                            const current = new Date();
+                            current.setMonth(current.getMonth() - 1);
+                            const previousMonth = current.toLocaleString('default', { month: 'long' });
+
+                            document.write(previousMonth);
+                        </script>
+                    </h2>
                 </div>
             </div>
             <canvas id="myChart" style="width:100%;"></canvas>
@@ -73,30 +81,37 @@
 
     <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_2.jpg);">
         <div class="container">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="text-white">Plan for the year
+                        <script>document.write(new Date().getFullYear());</script>
+                    </h2>
+                </div>
+            </div>
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="row">
-                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="col-md-2 d-flex justify-content-center counter-wrap ftco-animate">
                             <div class="block-18 text-center">
                                 <div class="text">
-                                    <strong class="number" data-number="50000">0</strong>
-                                    <span>Happy Guests</span>
+                                    <strong class="number" data-number="50">0</strong>
+                                    <span>Resorts 1</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="col-md-2 d-flex justify-content-center counter-wrap ftco-animate">
                             <div class="block-18 text-center">
                                 <div class="text">
-                                    <strong class="number" data-number="3000">0</strong>
-                                    <span>Rooms</span>
+                                    <strong class="number" data-number="20">0</strong>
+                                    <span>Resorts 2</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+                        <div class="col-md-2 d-flex justify-content-center counter-wrap ftco-animate">
                             <div class="block-18 text-center">
                                 <div class="text">
-                                    <strong class="number" data-number="1000">0</strong>
-                                    <span>Staffs</span>
+                                    <strong class="number" data-number="15">0</strong>
+                                    <span>Resorts 3</span>
                                 </div>
                             </div>
                         </div>
@@ -104,7 +119,15 @@
                             <div class="block-18 text-center">
                                 <div class="text">
                                     <strong class="number" data-number="100">0</strong>
-                                    <span>Destination</span>
+                                    <span>Rooms Bookings</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center counter-wrap ftco-animate">
+                            <div class="block-18 text-center">
+                                <div class="text">
+                                    <strong class="number" data-number="60">0</strong>
+                                    <span>Event Bookings</span>
                                 </div>
                             </div>
                         </div>
@@ -174,10 +197,11 @@
 
                     <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template
+                        <script>document.write(new Date().getFullYear());</script>
+                        <!-- All rights reserved | This template
                         is made with
                         <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                            target="_blank">Colorlib</a>
+                            target="_blank">Colorlib</a> -->
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                     </p>
                 </div>
@@ -214,27 +238,57 @@
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
 
-    <script>
-        var xValues = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        var yValues = [55, 49, 44, 24, 15, 33, 23, 56, 48, 98, 19, 78];
-        var barColors = ['#FF5733', '#C70039', '#900C3F', '#581845', '#2ECC71', '#27AE60', '#1ABC9C', '#3498DB', '#2980B9', '#9B59B6', '#8E44AD', '#34495E'];
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-labels"></script> -->
 
+    <script>
+        var data = {
+            labels: ["Resort 1", "Resort 2", "Resort 3"],
+            datasets: [
+                {
+                    label: "Booking Planned",
+                    backgroundColor: "#FF5733",
+                    data: [1000, 1000, 1000],
+                    render: 'value'
+                },
+                {
+                    label: "Booking Actual",
+                    backgroundColor: "#C70039",
+                    data: [800, 700, 600],
+                    render: 'value'
+                },
+                {
+                    label: "Kitchen Sale Planned",
+                    backgroundColor: "#900C3F",
+                    data: [1000, 1000, 1000],
+                    render: 'value'
+                },
+                {
+                    label: "Kitchen Sale Actual",
+                    backgroundColor: "#581845",
+                    data: [800, 700, 600],
+                    render: 'value'
+                },
+                {
+                    label: "Event Booking Planned",
+                    backgroundColor: "#2ECC71",
+                    data: [1000, 1000, 1000],
+                    render: 'value'
+                },
+                {
+                    label: "Event Booking Actual",
+                    backgroundColor: "#27AE60",
+                    data: [600, 700, 800],
+                    render: 'value'
+                }
+            ]
+        };
 
         new Chart("myChart", {
             type: "bar",
-            data: {
-                labels: xValues,
-                datasets: [{
-                    backgroundColor: barColors,
-                    data: yValues
-                }]
-            },
+            data: data,
             options: {
-                legend: { display: false },
-                title: {
-                    display: false,
-                    text: "Title"
-                },
+                legend: { display: true, position: "right" },
                 scales: {
                     xAxes: [{
                         gridLines: {
@@ -242,6 +296,9 @@
                         }
                     }],
                     yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        },
                         gridLines: {
                             display: false
                         }
@@ -250,6 +307,7 @@
             }
         });
     </script>
+
 
 </body>
 
